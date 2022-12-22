@@ -1,8 +1,7 @@
 <script setup>
-    import FortuneCookie from "./components/FortuneCookie.vue";
+import FortuneCookie from "./components/FortuneCookie.vue";
 </script>
 
 <template>
-    <FortuneCookie />
+  <FortuneCookie />
 </template>
-
