@@ -1,5 +1,5 @@
 <template>
-  <p>{{ fortune }}</p>
+  <p v-show="fortune">{{ fortune }}</p>
   <button @click.prevent="getNewFortune">Click me</button>
 </template>
 
@@ -8,15 +8,18 @@ export default {
   name: "fortune-cookie",
   components: {},
   data() {
-    return {};
+    return {
+      fortune: "",
+    };
   },
   methods: {
     getNewFortune() {
-      fetch("http://localhost:3000/get")
+      fetch("http://localhost:3000/getFortune")
         .then((response) => {
           return response.json();
         })
         .then((data) => {
+          this.fortune = data.fortune;
           console.log(data);
         })
         .catch((error) => {
